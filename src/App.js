@@ -17,7 +17,23 @@ function App() {
           <a href="/signup" className="cta-link">Try now for free</a>
         </div>
         <div className="signup-form">
-          <p>*Sign up form*</p>
+          <h2>Join the Waitlist</h2>
+          <form>
+            <div className="form-row">
+              <label htmlFor="name" className="form-label">Name: </label>
+              <input type="text" id="name" name="name" placeholder="Your name" required />
+            </div>
+
+            <div className="form-row">
+              <label htmlFor="email" className="form-label">Email: </label>
+              <input type="email" id="email" name="email" placeholder="Your email" required />
+            </div>
+
+            <label htmlFor="comment">How do you want to improve your conversation? </label>
+            <textarea id="comment" name="comment" placeholder="Your Answer (optional)" rows="4"></textarea>
+
+            <button type="submit">Submit</button>
+          </form>
         </div>
       </div>
     </div>

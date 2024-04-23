@@ -77,11 +77,77 @@ body {
   right: 2rem; /* Position it 2rem from the right edge of the main-content */
   top: 50%; /* Center it vertically */
   transform: translateY(-50%); /* Adjust vertical centering */
-  width: 30%; /* Reduced width from 40% to 30% */
+  width: 21.5rem; /* Reduced width from 40% to 30% */
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 10px;
-  height: 200px; /* Adjust height as needed */
+  /*height: 200px;  Adjust height as needed */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0); /* Slight transparency to show the background */
+}
+
+.signup-form h2 {
+  color: #F5F5F5;
+  margin-bottom: 1rem;
+}
+
+.comment{
+  width: 100%;
+}
+
+.signup-form form {
+  width: 100%; /* Set the form to fill the container */
+}
+
+.signup-form label {
+  margin-top: 0.5rem;
+  color: #F5F5F5; /* Whiteish color for labels for readability */
+}
+
+.signup-form input,
+.signup-form textarea {
+  width: 100%; /* Make inputs fill the width of the form */
+  padding: 0.5rem;
+  margin-top: 0.2rem; /* Space between the label and the input */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+}
+
+.form-row {
+  display: flex;
+  align-items: center; /* This will vertically center the items in the flex container */
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  margin-right: 0.1rem;
+  margin-bottom: 0.4rem;
+  white-space: nowrap; /* Prevents the label from wrapping */
+}
+
+input[type="text"],
+input[type="email"] {
+  flex-grow: 1; /* Allows input to fill the space */
+  margin-left: 0.5rem; /* Adds some space between label and input */
+}
+
+.signup-form button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 20px; /* Rounded edges for the button */
+  background-color: #000; /* Dark background for the button */
+  color: #F5F5F5; /* Whiteish color text for the button */
+  cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+}
+
+.signup-form button:hover {
+  background-color: #333; /* Darker background on hover */
 }
 
 .cta-container {
