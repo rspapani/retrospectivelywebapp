@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 
-function App() {
+function App() {useEffect(() => {
+  document.title = "NOT MOBILE OPTIMIZED"
+}, []);
+
   return (
     <div className="container">
       <div className="gif-background"></div> {/* Added GIF background container */}
