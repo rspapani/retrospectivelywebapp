@@ -1,0 +1,124 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('./fonts/Test Söhne/test-soehne-buch.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  color: #F5F5F5; /* Whitish color, can adjust to your preference */
+  font-family: 'Sohne',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */
+}
+
+.header, .menu, .cta-heading, .cta-link, .signup-form p {
+  color: #F5F5F5; /* This will apply whiteish color to all text */
+}
+
+.gif-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./images/oreimo.gif') no-repeat center center; /* Replace with your GIF path */
+  background-size: cover;
+  z-index: -1;
+}
+
+.gif-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(50, 50, 50, 0.7); /* Dark grayish tint */
+  z-index: -1;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.menu-link {
+  color: #F5F5F5; /* Whiteish color for text */
+  text-decoration: none; /* No underline by default */
+  transition: text-decoration 0.3s; /* Smooth transition for the underline */
+}
+
+.menu-link:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.main-content {
+  display: flex;
+  align-items: center; /* Ensure vertical centering */
+  justify-content: flex-start; /* Aligns CTA to the start of the main axis */
+  padding: 1rem;
+  position: relative;
+  height: calc(100% - 2rem); /* Adjust based on header height */
+}
+
+.signup-form {
+  position: absolute; /* Use absolute positioning */
+  right: 2rem; /* Position it 2rem from the right edge of the main-content */
+  top: 50%; /* Center it vertically */
+  transform: translateY(-50%); /* Adjust vertical centering */
+  width: 30%; /* Reduced width from 40% to 30% */
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  height: 200px; /* Adjust height as needed */
+}
+
+.cta-container {
+  position: absolute;
+  bottom: 4rem; /* Increased distance from bottom */
+  left: 3rem; /* Increased distance from left */
+  flex: 0 0 40%; /* Flex basis of 40%, does not grow or shrink */
+  max-width: calc(60% - 4rem); /* Ensure it doesn't overlap the form */
+}
+
+
+.cta-heading {
+  font-size: 3rem; /* Maintain your size or adjust as necessary */
+  font-weight: 400; /* This is normally 'normal' weight, less bold than the default */
+  color: #F5F5F5; /* Assuming you are keeping the whitish color */
+
+  
+  margin-bottom: 2rem; /* Removes default margin */
+}
+
+.cta-link, .cta-link:active, .cta-link:visited {
+  color: #F5F5F5;
+  text-decoration: none; /* Removes underline */
+  display: inline-block; /* Allows width and height to be set */
+  margin-top: 0rem; /* Space between heading and link */
+  margin-left: 0.5rem; /* Moves the link slightly to the right */
+  /*padding: 0.3rem 0.5rem; /* Padding inside the border */
+  padding: 0.5rem 1rem; /* Padding inside the border */
+  border: 1px solid #F5F5F5; /* Border color */
+  border-radius: 4px; /* Rounded corners for the border */
+  transition: background-color 0.3s; /* Smooth transition for background fill */
+}
+
+.cta-link:hover {
+  color: rgba(25, 25, 25, 100); 
+  background-color: #F5F5F5; /* Background color on hover */
+}
+
+
+
