@@ -4,22 +4,43 @@ import axios from 'axios'
 const AudioRecorderPage = () => {
   const [recording, setRecording] = useState(false);
   const intervalRef = useRef(null);
+  const audioRef = useRef(new Audio());
 
   async function sendToServer(blob) {
     const formData = new FormData();
     formData.append('file', blob, 'audio.webm');
 
-    try {
-        const response = await fetch('http://localhost:5000/upload_audio', {
-            method: 'POST',
-            body: formData,
-        });
-        
-        const data = await response.json();
-        console.log('Server response:', data);
+    const response = await fetch('http://localhost:5000/upload_audio', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json()) // Assuming the server responds with JSON containing the audio URL
+    .then(data => {
+        if (data.feedback_path) {
+          if (data.feedback_path !== "") {
+            console.log("".concat("http://localhost:5000/audio_feedback/", data.feedback_path));
+            playAudio("".concat("http://localhost:5000/audio_feedback/", data.feedback_path));
+          }
+          
+          else {
+            console.log("no feedback")
+          }
+        }
 
-    } catch (error) {
-        console.error('Error sending audio to server:', error);
+        else {
+          console.log("no feedback path?")
+        }
+    })
+    .catch(error => {
+        console.error('Error sending file', error);
+    });
+  }
+
+  function playAudio(url) {
+    if (audioRef.current) {
+        audioRef.current.src = url;
+        audioRef.current.play()
+        .catch(error => console.error('Error playing audio:', error));
     }
   }
 
@@ -39,12 +60,12 @@ const AudioRecorderPage = () => {
     recorder.start();
     setTimeout(() => {
         recorder.stop();
-    }, 5000);
+    }, 20000);
   }
 
   useEffect(() => {
     if (recording) {
-        intervalRef.current = setInterval(record_and_send, 5000);
+        intervalRef.current = setInterval(record_and_send, 20000);
     } else {
         clearInterval(intervalRef.current);
     }
