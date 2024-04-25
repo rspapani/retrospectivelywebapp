@@ -1,11 +1,10 @@
-import React, { useState ,useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './MediaCapture.module.css';
 
 function ImageCapture({isActive}) {
     const videoRef = useRef(null);
     const intervalRef = useRef(null);
-
-
+    
     useEffect(() => {
         const getVideo = async () => {
             try {
@@ -24,6 +23,7 @@ function ImageCapture({isActive}) {
         return () => {
             if (videoRef.current && videoRef.current.srcObject) {
                 videoRef.current.srcObject.getTracks().forEach(track => track.stop());
+                // eslint-disable-next-line
                 videoRef.current.srcObject = null;
             }
         };

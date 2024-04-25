@@ -27,7 +27,7 @@ function MediaManager() {
                 </button>
             </div>
 
-            <AudioCapture isActive={isActive} />
+            <AudioCapture isrecording={isActive} />
         </div>
     );
 }

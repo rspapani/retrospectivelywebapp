@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const AudioCapture = ({isrecording}) => {
-  const [firsttime, firsttimedone] = useState(true);
   const intervalRef = useRef(null);
   const audioRef = useRef(new Audio());
 
@@ -60,24 +59,18 @@ const AudioCapture = ({isrecording}) => {
     recorder.start();
     setTimeout(() => {
         recorder.stop();
-    }, 20000);
+    }, 21000);
   }
 
   useEffect(() => {
     if (isrecording) {
-      if (firsttime){
-        console.log(firsttime); 
-        record_and_send();
-        firsttimedone(false);
-      }
-      else{
-        intervalRef.current = setInterval(record_and_send, 20000);
-      }
+      intervalRef.current = setInterval(record_and_send, 20000);
     } else {
         clearInterval(intervalRef.current);
     }
 
     return () => clearInterval(intervalRef.current);
+    // eslint-disable-next-line
   }, [isrecording]);
 
   return (
