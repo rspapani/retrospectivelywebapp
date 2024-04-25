@@ -12,6 +12,7 @@ function App() {
       const { top, bottom, height } = contentRef.current.getBoundingClientRect();
       const screenHeight = window.innerHeight || document.documentElement.clientHeight;
 
+      console.log(bottom)
       // Calculate opacity based on the scroll position
       if (top < screenHeight) {
         // Ensure that opacity goes from 0 to 1 based on the position of the content
