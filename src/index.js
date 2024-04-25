@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
-import App from './AppStatic';
+// import AppStatic from './AppStatic';
 // import App from './ImageCapture';
+import App from './MediaCapture';
 import reportWebVitals from './reportWebVitals';
 
 

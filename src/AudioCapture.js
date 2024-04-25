@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios'
 
-const AudioRecorderPage = () => {
-  const [recording, setRecording] = useState(false);
+const AudioCapture = ({isrecording}) => {
+  const [firsttime, firsttimedone] = useState(true);
   const intervalRef = useRef(null);
   const audioRef = useRef(new Audio());
 
@@ -10,12 +9,13 @@ const AudioRecorderPage = () => {
     const formData = new FormData();
     formData.append('file', blob, 'audio.webm');
 
-    const response = await fetch('http://localhost:5000/upload_audio', {
+    await fetch('http://localhost:5000/upload_audio', {
         method: 'POST',
         body: formData,
     })
     .then(response => response.json()) // Assuming the server responds with JSON containing the audio URL
     .then(data => {
+      console.log("Audio Sent!")
         if (data.feedback_path) {
           if (data.feedback_path !== "") {
             console.log("".concat("http://localhost:5000/audio_feedback/", data.feedback_path));
@@ -45,7 +45,7 @@ const AudioRecorderPage = () => {
   }
 
   async function record_and_send() {
-    if (!recording) return;
+    if (!isrecording) return;
 
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
     const recorder = new MediaRecorder(stream);
@@ -64,25 +64,33 @@ const AudioRecorderPage = () => {
   }
 
   useEffect(() => {
-    if (recording) {
+    if (isrecording) {
+      if (firsttime){
+        console.log(firsttime); 
+        record_and_send();
+        firsttimedone(false);
+      }
+      else{
         intervalRef.current = setInterval(record_and_send, 20000);
+      }
     } else {
         clearInterval(intervalRef.current);
     }
 
     return () => clearInterval(intervalRef.current);
-  }, [recording]);
+  }, [isrecording]);
 
   return (
-    <div> {!recording ? 
-    <button onClick={() => setRecording(true)}>
-      Start Recording
-    </button> :
-    <button onClick={() => setRecording(false)}>
-      Stop Recording
-    </button> }
-    </div>
+    // <div> {!recording ? 
+    // <button onClick={() => setRecording(true)}>
+    //   Start Recording
+    // </button> :
+    // <button onClick={() => setRecording(false)}>
+    //   Stop Recording
+    // </button> }
+    // </div>
+    <span></span>
   );
 };
 
-export default AudioRecorderPage;
+export default AudioCapture;
