@@ -88,7 +88,7 @@ function App() {
         </div>
         <div className="signup-form">
         <h2>Join the Waitlist</h2>
-        <form onSubmit={handleSubmit} data-netlify="true">
+        <form onSubmit={handleSubmit} netlify>
             <div className="form-row">
             <label htmlFor="name" className="form-label">Name: </label>
             <input type="text" id="name" name="name" placeholder="Your name" required />
