@@ -7,15 +7,16 @@ function App() {
   const [opacity, setOpacity] = useState(0);
   const [opacitytwo, setOpacitytwo] = useState(0);
   const contentRef = useRef(null);
-  const [submitted, setSubmitted] = useState(false);
-  const [buttonText, setButtonText] = useState(' Submit ');
+  
+  // const [submitted, setSubmitted] = useState(false);
+  // const [buttonText, setButtonText] = useState(' Submit ');
 
-  const handleSubmit = () => {
-    //event.preventDefault(); // Prevent the default form submit action
-    setSubmitted(true); // Update the submitted state to true
-    setButtonText("Thanks you'll hear from us soon!"); // Update the button text
-    // Here you would typically also send the form data to your server
-  };
+  // const handleSubmit = () => {
+  //   //event.preventDefault(); // Prevent the default form submit action
+  //   setSubmitted(true); // Update the submitted state to true
+  //   setButtonText("Thanks you'll hear from us soon!"); // Update the button text
+  //   // Here you would typically also send the form data to your server
+  // };
 
   const handleScroll = () => {
     if (contentRef.current) {
