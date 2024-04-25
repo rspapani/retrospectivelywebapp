@@ -1,5 +1,9 @@
 
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+
 
 @font-face {
   font-family: 'Albatross';
@@ -8,7 +12,23 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Albatross light';
+  src: url('./fonts/Test Söhne/test-soehne-leicht.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Albatross Mono';
+  src: url('./fonts/Test Söhne Mono/test-soehne-mono-leicht.woff2') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
+  padding: 0;
+  margin: 0;
   color: #F5F5F5; /* Whitish color, can adjust to your preference */
   font-family: 'Albatross',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */
 }
@@ -18,6 +38,7 @@ body {
 }
 
 .gif-background {
+  padding: 0;  
   position: fixed;
   top: 0;
   left: 0;
@@ -41,25 +62,53 @@ body {
 
 
 .container {
+  opacity: 1;
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
 .header {
+  position: fixed; /* Fixed positioning relative to the viewport */
+  top: 0; /* Align to the top of the viewport */
+  left: 0; /* Align to the left of the viewport */
+  right: 0;
+  width: 100%; /* Header spans the full width of the viewport */
+  z-index: 1000; /* Ensure the header is above other content */
+
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  padding-top: 1.2rem;
   border-bottom: 1px solid #ccc;
 }
 
-.menu-link {
+.xyz {
+  color: #DFFF11;
+}
+
+.menu {
+  margin-right: 1.9rem;
+}
+
+/* Padding to avoid content being hidden behind the fixed header */
+.main-content {
+  padding-top: 70px; /* Adjust to the height of your header */
+  /* Other styles... */
+}
+
+
+.menu-link, .learn {
   color: #F5F5F5; /* Whiteish color for text */
   text-decoration: none; /* No underline by default */
   transition: text-decoration 0.3s; /* Smooth transition for the underline */
 }
 
-.menu-link:hover {
+.learn {
+  margin-right: 1rem;
+}
+
+.menu-link:hover, .learn:hover {
   text-decoration: underline; /* Underline on hover */
 }
 
@@ -73,12 +122,12 @@ body {
 }
 
 .signup-form {
-  margin-top: 4.5rem; /* Increased distance from bottom */
+  margin-top: 6.4rem; /* Increased distance from bottom */
   position: absolute; /* Use absolute positioning */
   right: 2rem; /* Position it 2rem from the right edge of the main-content */
   top: 50%; /* Center it vertically */
   transform: translateY(-50%); /* Adjust vertical centering */
-  width: 21.5rem; /* Reduced width from 40% to 30% */
+  width: 22rem; /* Reduced width from 40% to 30% */
   padding: 1rem;
   /* border: 1px solid #ccc; */
   border-radius: 10px;
@@ -129,7 +178,7 @@ body {
   padding: 0.5rem;
   margin-top: 0.2rem; /* Space between the label and the input */
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 3px;
   box-sizing: border-box; /* Includes padding and border in the element's total width and height */
 }
 
@@ -152,11 +201,12 @@ input[type="email"] {
 }
 
 .signup-form button {
-  padding: 0.5rem 1rem; /* Same padding as the CTA link */
-  border: 1px solid rgba(25, 25, 25, 100); /* Same border style as the CTA link */
+  /*padding: 0.5rem 1rem; /* Same padding as the CTA link */
+  padding: 0.4rem 0.8rem; /* Padding inside the border */
+  border-radius: 3px; /* Same border-radius as the CTA link for rounded corners */
+  /*border: 1px solid rgba(25, 25, 25, 100); /* Same border style as the CTA link */
+  /*background-color: rgba(25, 25, 25, 100); */
   border: 1px solid #F5F5F5; /* Same border style as the CTA link */
-  border-radius: 4px; /* Same border-radius as the CTA link for rounded corners */
-  background-color: rgba(25, 25, 25, 100); 
   background-color: transparent; /* Start with a transparent background */
   color: #F5F5F5; /* Whiteish color text to match the CTA link */
   cursor: pointer; /* Hand cursor on hover to indicate a clickable button */
@@ -174,11 +224,16 @@ input[type="email"] {
 }
 
 .signup-form button:hover {
+  border: 1px solid #DFFF11; /* Same border style as the CTA link */
+  color: rgba(25, 25, 25, 100); 
+  background-color: #DFFF11; /* Background color on hover */
+}
+
+.signup-form button:hover {
   border: 1px solid #F5F5F5; /* Same border style as the CTA link */
   color: rgba(25, 25, 25, 100); 
   background-color: #F5F5F5; /* Background color on hover */
 }
-
 
 .cta-container {
   position: absolute;
@@ -195,7 +250,7 @@ input[type="email"] {
   color: #F5F5F5; /* Assuming you are keeping the whitish color */
 
   
-  margin-bottom: 2rem; /* Removes default margin */
+  margin-bottom: 1.5rem; /* Removes default margin */
 }
 
 .cta-link, .cta-link:active, .cta-link:visited {
@@ -204,16 +259,116 @@ input[type="email"] {
   display: inline-block; /* Allows width and height to be set */
   margin-top: 0rem; /* Space between heading and link */
   margin-left: 0.5rem; /* Moves the link slightly to the right */
-  /*padding: 0.3rem 0.5rem; /* Padding inside the border */
-  padding: 0.5rem 1rem; /* Padding inside the border */
+  /*padding: 0.5rem 1rem; /* Padding inside the border */
+  padding: 0.3rem 0.7rem; /* Padding inside the border */
   border: 1px solid #F5F5F5; /* Border color */
-  border-radius: 4px; /* Rounded corners for the border */
+  border-radius: 3px; /* Rounded corners for the border */
   /*transition: background-color 0.3s; /* Smooth transition for background fill */
+}
+
+.cta-link:hover {
+ /* border: 1px solid #DFFF11; /* Same border style as the CTA link */
+  color: rgba(25, 25, 25, 100); 
+  background-color: #DFFF11; /* Background color on hover */
 }
 
 .cta-link:hover {
   color: rgba(25, 25, 25, 100); 
   background-color: #F5F5F5; /* Background color on hover */
+}
+
+
+
+
+.home-page {
+  min-height: 200vh; /* Example height to allow for scrolling */
+}
+
+.darkbg {
+  margin: 0;
+  padding: 0;
+
+  /*background-color: rgb(25, 25, 25); /* Background color as per your mockup */
+  /*background-color: rgb(0, 0, 0); /* Background color as per your mockup */
+  /* transition: opacity 0.1s ease-in-out;  */
+}
+
+.scrollable-content-section {
+  /* margin: 1rem; */
+
+  display: flex;
+  justify-content: space-between; /* Space out the text and image */
+  /* align-items: center; /*Vertically aligns content */
+  color: #f5f5f5; /* Text color */
+  height: 100vh;
+
+  
+}
+
+/* State of the section when it's in view */
+/* .scrollable-content-section.in-view {
+  opacity: 1; /* Fully visible when in view 
+  display: flex;
+} */
+
+
+.text-content {
+  margin-top: 6rem;
+  padding-left: 3rem;
+  flex-basis: 50%; /* Adjust width as necessary */
+  /* Add padding or margins as needed for spacing */
+}
+
+
+.image-content {
+  padding: 1rem;
+  padding-top: 6rem;
+  height: 78vh;
+  /*flex-basis: 50%;  Adjust width as necessary */
+  /* Style your image container if needed */
+}
+
+.image-content img {
+  width: 100%; /* Width of the image will follow the container's width */
+  height: 100%; /* Height of the image will follow the container's height */
+  object-fit: cover; /* The image will cover the entire container */
+  border-radius: 3px;
+}
+
+
+
+
+/* Style for the paragraph in the content section */
+.scrollbody {
+  font-family: 'Albatross light',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */
+  letter-spacing: 0.05rem;
+  margin-top: 1.5rem;
+  padding: 0rem;
+  font-size: 1rem; /* Large font size for heading */
+  /* Additional paragraph styles as needed */
+}
+
+.scrollbody a, .scrollheading a{
+  color: #DFFF11;
+  text-decoration: none;
+}
+
+
+.scrollbody a:visited{
+  color: #DFFF11;
+  text-decoration: none;
+}
+
+/* Style for the main heading in the content section */
+.scrollheading{
+  font-family: 'Albatross Mono',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */
+  letter-spacing: 0.05rem;
+
+  margin-top: 0rem;
+  padding: 0rem;
+
+  font-size: 2rem; /* Large font size for heading */
+  margin-bottom: 0.5rem; /* Spacing between heading and paragraph */
 }
 
 
