@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+
 import './AppStatic.css';
+
 
 function App() {
   const [opacity, setOpacity] = useState(0);
@@ -15,7 +17,12 @@ function App() {
         // Ensure that opacity goes from 0 to 1 based on the position of the content
         let newOpacity = 1 - ((top) / (height));
         newOpacity = Math.min(Math.max(newOpacity, 0), 1); // Clamp the value between 0 and 1
-        setOpacity(newOpacity);
+        if (newOpacity > 0.1){
+          setOpacity(newOpacity);
+        }
+        else{
+          setOpacity(0);
+        }
       }
     }
   };
@@ -29,9 +36,6 @@ function App() {
     };
   }, []);
   
-  useEffect(() => {
-    document.title = "NOT MOBILE OPTIMIZED"
-  }, []); 
 
   return (
     <div className="home-page">
@@ -50,13 +54,13 @@ function App() {
         </a>
         </div>
         <div className="menu">
-            <a href="./about" className="menu-link">About</a> 
+            <a href="./about.htm" className="menu-link">About</a> 
         </div>
     </header>
     <div className="main-content">
         <div className="cta-container">
         <h1 className="cta-heading">Changing the way that we Communicate</h1>
-        <a href="./demo" className="cta-link">Try now for Free</a>
+        <a href="./about" className="cta-link">Try now for Free</a>
         </div>
         <div className="signup-form">
         <h2>Join the Waitlist</h2>
@@ -88,13 +92,13 @@ function App() {
         ref={contentRef}
       >
       <div className="text-content">
-        <p className='scrollheading'>Using AI to bring about <a>Conversational</a> Excellence</p>
+        <p className='scrollheading'>Using AI to bring about <span className="fuckyoureact">Conversational</span> Excellence</p>
         <p className='scrollbody'>
-          Retrospectively uses computer vision, tonal audio analysis, and LLM agents to become your own personal speech coach.  By observing your conversations, Retrospectively gives you live feedback in a non-intrusive manner that allows you to keep your natural flow while avoiding the social faux passes that often keep you up at night (<a>we've all had them</a>).  And by analyzing emotional responses of the people you're talking to, the things that have been said, we guarantee we can make you a better speaker with our end of day summaries.
+          Retrospectively uses computer vision, tonal audio analysis, and LLM agents to become your own personal speech coach.  By observing your conversations, Retrospectively gives you live feedback in a non-intrusive manner that allows you to keep your natural flow while avoiding the social faux passes that often keep you up at night (<span className="fuckyoureact">we've all had them</span>).  And by analyzing emotional responses of the people you're talking to, the things that have been said, we guarantee we can make you a better speaker with our end of day summaries.
         </p>
 
         <p className='scrollbody'>
-          We plan on releasing a version for AR devices so you can take your speech coach on the go, as well as a desktop client for those excessively long Zoom meetings.  But for the time being we have a <a href='./demo/'> web version</a> that you can try now.  Whether you struggle to pick up on social cues, want to make yourself a better communicator in the virtual world, or just want to improve your speech <a>Retrospectively is for you</a>.
+          We plan on releasing a version for AR devices so you can take your speech coach on the go, as well as a desktop client for those excessively long Zoom meetings.  But for the time being we have a <a href='./demo/'> web version</a> that you can try now.  Whether you struggle to pick up on social cues, want to make yourself a better communicator in the virtual world, or just want to improve your speech <span className="fuckyoureact">Retrospectively is for you</span>.
         </p>
       </div>
       <div className="image-content">
@@ -107,7 +111,11 @@ function App() {
       </div>
     </div>
     </div>
+
+ 
+
     </div>
+
   );
 }
 
