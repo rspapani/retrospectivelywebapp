@@ -8,15 +8,18 @@ function App() {
   const [opacitytwo, setOpacitytwo] = useState(0);
   const contentRef = useRef(null);
   
-  // const [submitted, setSubmitted] = useState(false);
-  // const [buttonText, setButtonText] = useState(' Submit ');
+  const [submitted, setSubmitted] = useState(false);
+  const [buttonText, setButtonText] = useState(' Submit ');
 
-  // const handleSubmit = () => {
-  //   //event.preventDefault(); // Prevent the default form submit action
-  //   setSubmitted(true); // Update the submitted state to true
-  //   setButtonText("Thanks you'll hear from us soon!"); // Update the button text
-  //   // Here you would typically also send the form data to your server
-  // };
+  const handleSubmit = (event) => {
+    console.log(event)
+    event.preventDefault(); // Prevent the default form submit action
+    setSubmitted(true); // Update the submitted state to true
+    setButtonText("Thanks you'll hear from us soon!"); // Update the button text
+    // Here you would typically also send the form data to your server
+
+    // event.preventdefault();
+  };
 
   const handleScroll = () => {
     if (contentRef.current) {
@@ -85,7 +88,7 @@ function App() {
         </div>
         <div className="signup-form">
         <h2>Join the Waitlist</h2>
-        <form name="waitlist" data-netlify="true">
+        <form name="waitlist" onSubmit={handleSubmit} data-netlify="true">
             <input type="hidden" name="form-name" value="waitlist" />
             <div className="form-row">
             <label htmlFor="name" className="form-label">Name: </label>
@@ -101,10 +104,9 @@ function App() {
             <textarea id="comment" name="comment" placeholder="Your Answer (optional)" rows="3"></textarea>
 
             <button type="submit" name="submitbutt" 
-              // className={`submit-button ${submitted ? 'submitted' : ''}`}
-              // disabled={submitted}
-              >
-                submit
+              className={`submit-button ${submitted ? 'submitted' : ''}`}
+              disabled={submitted}>
+              {buttonText}
             </button>
         </form>
         
