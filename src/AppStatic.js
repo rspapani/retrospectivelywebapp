@@ -32,7 +32,7 @@ function App() {
         createdAt: new Date()
       });
       console.log("Document written with ID: ", docRef.id);
-      
+
       setSubmitted(true); // Update the submitted state to true
       setButtonText("Thanks you'll hear from us soon!"); 
 

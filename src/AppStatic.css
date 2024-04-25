@@ -86,8 +86,9 @@ body {
 .footer {
   position: fixed;
   bottom: 0;
-  height: 2rem;
+  height: 20rem;
   width: 100%;
+  z-index: -1;
 }
 
 .xyz {
