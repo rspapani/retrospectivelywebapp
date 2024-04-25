@@ -5,6 +5,7 @@ import './AppStatic.css';
 
 function App() {
   const [opacity, setOpacity] = useState(0);
+  const [opacitytwo, setOpacitytwo] = useState(0);
   const contentRef = useRef(null);
 
   const handleScroll = () => {
@@ -17,13 +18,22 @@ function App() {
       if (top < screenHeight) {
         // Ensure that opacity goes from 0 to 1 based on the position of the content
         let newOpacity = 1 - ((top) / (height));
+
         newOpacity = Math.min(Math.max(newOpacity, 0), 1); // Clamp the value between 0 and 1
         if (newOpacity > 0.1){
           setOpacity(newOpacity);
+          if (newOpacity >= 1){
+            setOpacitytwo(1)
+          }
+          else {
+            setOpacitytwo(0)
+          }
         }
         else{
           setOpacity(0);
         }
+
+
       }
     }
   };
@@ -35,6 +45,10 @@ function App() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
+
+  useEffect(() => {
+    document.title = 'CONFIDENTIAL MOCKUP FOR RETROSPECTIVELY VOLUNTEERS ONLY';
   }, []);
   
 
@@ -55,13 +69,13 @@ function App() {
         </a>
         </div>
         <div className="menu">
-            <a href="./about.htm" className="menu-link">About</a> 
+            <a href="./about" className="menu-link">About</a> 
         </div>
     </header>
     <div className="main-content">
         <div className="cta-container">
         <h1 className="cta-heading">Changing the way that we Communicate</h1>
-        <a href="./about" className="cta-link">Try now for Free</a>
+        <a href="./demo" className="cta-link">Try now for Free</a>
         </div>
         <div className="signup-form">
         <h2>Join the Waitlist</h2>
@@ -115,6 +129,9 @@ function App() {
 
  
 
+    <header className="footer"
+      style={{ background: 'rgb(30, 30, 30,'+ opacitytwo + ')' }}
+      ></header>
     </div>
 
   );

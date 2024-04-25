@@ -83,6 +83,13 @@ body {
   border-bottom: 1px solid #ccc;
 }
 
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 2rem;
+  width: 100%;
+}
+
 .xyz {
   color: #DFFF11;
 }
