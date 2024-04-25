@@ -126,7 +126,7 @@ function App() {
         </p>
 
         <p className='scrollbody'>
-          We plan on releasing a version for AR devices so you can take your speech coach on the go, as well as a desktop client for those excessively long Zoom meetings.  But for the time being we have a <a href='./demo/'> web version</a> that you can try now.  Whether you struggle to pick up on social cues, want to make yourself a better communicator in the virtual world, or just want to improve your speech <span className="fuckyoureact">Retrospectively is for you</span>.
+          We plan on releasing a version for AR devices so you can take your speech coach on the go, as well as a desktop client for those excessively long Zoom calls.  But for the time being we have a <a href='./demo/'> web version</a> that you can try now.  Whether you struggle to pick up on social cues, want to make yourself a better communicator in the virtual world, or just want to improve your speech <span className="fuckyoureact">Retrospectively is for you</span>.
         </p>
       </div>
       <div className="image-content">
