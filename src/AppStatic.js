@@ -101,8 +101,7 @@ function App() {
 
             <button type="submit" name="submitbutt" 
               className={`submit-button ${submitted ? 'submitted' : ''}`}
-              disabled={submitted}
-              onClick={() => handleSubmit()}>
+              disabled={submitted}>
               {buttonText}
             </button>
         </form>
