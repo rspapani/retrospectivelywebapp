@@ -101,9 +101,10 @@ function App() {
             <textarea id="comment" name="comment" placeholder="Your Answer (optional)" rows="3"></textarea>
 
             <button type="submit" name="submitbutt" 
-              className={`submit-button ${submitted ? 'submitted' : ''}`}
-              disabled={submitted}>
-              {buttonText}
+              // className={`submit-button ${submitted ? 'submitted' : ''}`}
+              // disabled={submitted}
+              >
+                submit
             </button>
         </form>
         
