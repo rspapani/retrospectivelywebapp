@@ -10,8 +10,8 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [buttonText, setButtonText] = useState(' Submit ');
 
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submit action
+  const handleSubmit = () => {
+    //event.preventDefault(); // Prevent the default form submit action
     setSubmitted(true); // Update the submitted state to true
     setButtonText("Thanks you'll hear from us soon!"); // Update the button text
     // Here you would typically also send the form data to your server
@@ -55,10 +55,6 @@ function App() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  useEffect(() => {
-    document.title = 'CONFIDENTIAL MOCKUP FOR RETROSPECTIVELY VOLUNTEERS ONLY';
-  }, []);
   
 
   return (
@@ -88,7 +84,8 @@ function App() {
         </div>
         <div className="signup-form">
         <h2>Join the Waitlist</h2>
-        <form onSubmit={handleSubmit} data-netlify="true">
+        <form name="waitlist" data-netlify="true">
+            <input type="hidden" name="form-name" value="waitlist" />
             <div className="form-row">
             <label htmlFor="name" className="form-label">Name: </label>
             <input type="text" id="name" name="name" placeholder="Your name" required />
@@ -102,9 +99,10 @@ function App() {
             <label htmlFor="comment">How do you want to improve your conversations? </label>
             <textarea id="comment" name="comment" placeholder="Your Answer (optional)" rows="3"></textarea>
 
-            <button type="submit" 
+            <button type="submit" name="submitbutt" 
               className={`submit-button ${submitted ? 'submitted' : ''}`}
-              disabled={submitted}>
+              disabled={submitted}
+              onClick={() => handleSubmit()}>
               {buttonText}
             </button>
         </form>
