@@ -10,23 +10,11 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   const [buttonText, setButtonText] = useState(' Submit ');
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submit action
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent the default form submit action
     setSubmitted(true); // Update the submitted state to true
     setButtonText("Thanks you'll hear from us soon!"); // Update the button text
     // Here you would typically also send the form data to your server
-
-    
-    e.preventDefault();
-    const form = e.target;
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(new FormData(form)).toString()
-    })
-    .then(() => console.log('Form successfully submitted'))
-    .catch((error) => alert(error));
   };
 
   const handleScroll = () => {
@@ -73,7 +61,6 @@ function App() {
   }, []);
   
 
-
   return (
     <div className="home-page">
     <div className="gif-background"></div>
@@ -101,8 +88,7 @@ function App() {
         </div>
         <div className="signup-form">
         <h2>Join the Waitlist</h2>
-        <form name="waitlist" onSubmit={handleSubmit} netlify>
-            <input type="hidden" name="form-name" value="waitlist" />
+        <form onSubmit={handleSubmit} data-netlify="true">
             <div className="form-row">
             <label htmlFor="name" className="form-label">Name: </label>
             <input type="text" id="name" name="name" placeholder="Your name" required />
