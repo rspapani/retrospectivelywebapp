@@ -173,11 +173,12 @@ body {
 
 
 .signup-form input, 
-.signup-form textarea, 
-.signup-form button {
+.signup-form textarea,
+.submit-button {
   font-family: 'Albatross',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */
   font-size: 0.9rem;
 }
+
 
 .signup-form input,
 .signup-form textarea {
@@ -207,7 +208,7 @@ input[type="email"] {
   margin-left: 0.5rem; /* Adds some space between label and input */
 }
 
-.signup-form button {
+.submit-button {
   /*padding: 0.5rem 1rem; /* Same padding as the CTA link */
   padding: 0.4rem 0.8rem; /* Padding inside the border */
   border-radius: 3px; /* Same border-radius as the CTA link for rounded corners */
@@ -228,12 +229,10 @@ input[type="email"] {
   position: absolute; /* Position the button absolutely within the .signup-form */
   right: 1rem; /* Distance from the right border of the .signup-form */
   bottom: 1rem; /* Distance from the bottom border of the .signup-form */
-}
-
-.signup-form button:hover {
-  border: 1px solid #DFFF11; /* Same border style as the CTA link */
-  color: rgba(25, 25, 25, 100); 
-  background-color: #DFFF11; /* Background color on hover */
+  width: 6rem;
+  max-height: 2.6rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .signup-form button:hover {
@@ -241,6 +240,18 @@ input[type="email"] {
   color: rgba(25, 25, 25, 100); 
   background-color: #F5F5F5; /* Background color on hover */
 }
+
+.submit-button.submitted, .submit-button.submitted:hover  {
+  border: 1px solid #DFFF11; /* Same border style as the CTA link */
+  color: rgba(25, 25, 25, 100); 
+  background-color: #DFFF11; /* Background color on hover */
+  text-overflow: ellipsis;
+  width: 16rem;
+  transition: border 1s, color 1s, background-color 1s, width 1s;
+  /* transform: scale(1.1); */
+}
+
+
 
 .cta-container {
   position: absolute;

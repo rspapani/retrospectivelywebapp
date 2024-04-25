@@ -7,6 +7,15 @@ function App() {
   const [opacity, setOpacity] = useState(0);
   const [opacitytwo, setOpacitytwo] = useState(0);
   const contentRef = useRef(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [buttonText, setButtonText] = useState(' Submit ');
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevent the default form submit action
+    setSubmitted(true); // Update the submitted state to true
+    setButtonText("Thanks you'll hear from us soon!"); // Update the button text
+    // Here you would typically also send the form data to your server
+  };
 
   const handleScroll = () => {
     if (contentRef.current) {
@@ -79,7 +88,7 @@ function App() {
         </div>
         <div className="signup-form">
         <h2>Join the Waitlist</h2>
-        <form>
+        <form onSubmit={handleSubmit} data-netlify="true">
             <div className="form-row">
             <label htmlFor="name" className="form-label">Name: </label>
             <input type="text" id="name" name="name" placeholder="Your name" required />
@@ -93,7 +102,11 @@ function App() {
             <label htmlFor="comment">How do you want to improve your conversations? </label>
             <textarea id="comment" name="comment" placeholder="Your Answer (optional)" rows="3"></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit" 
+              className={`submit-button ${submitted ? 'submitted' : ''}`}
+              disabled={submitted}>
+              {buttonText}
+            </button>
         </form>
         
         </div>
