@@ -14,7 +14,7 @@
 
   @font-face {
     font-family: 'Albatross light italic';
-    src: url('./fonts/Test Söhne/test-soehne-leicht-kursiv.woff2') format('truetype');
+    src: url('./fonts/Test Söhne/test-soehne-buch-kursiv.woff2') format('truetype');
     font-weight: normal;
     font-style: normal;
   }
@@ -64,6 +64,7 @@
   
   .mediacol {
     margin: auto;
+    margin-top: 0;
     /* margin-left: 2rem; */
     display:inline-block;
 
@@ -80,10 +81,19 @@
     /* display:inline-block;  */
     padding: 1rem;
     padding-left: 1.2rem;
-}
+  }
 
-  .how-to-use p, h2{
+  .how-to-use p, h2, h3{
     margin: 0;
+  }
+
+  .how-to-use p {
+    margin-top: 1rem;
+    text-indent: 1rem;
+  }
+
+  .how-to-use h3 {
+    margin-top: 1rem;
   }
   
   .sidebar {
@@ -93,19 +103,40 @@
     margin: auto;
   }
   
-  .live-feedback-section,
   .logs-section {
     padding: 0.6rem;
     border: 1px solid #ccc;
     border-radius: 5px;
   }
 
-  
+
+  .feedback {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+    font-size: 1.4rem;
+    padding: 0.4rem 0.8rem; /* Padding inside the border */
+
+   
+    font-family: 'Albatross light italic',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */
+  }
+
+
   .live-feedback-section {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
     padding: 1rem;
-    padding-left: 1.2rem;
+    padding-left: 0.6rem;
     margin-bottom: 1rem;
   }
+
+  .live-feedback-section h2{
+    margin: 0;
+    margin-left: 0.6rem;
+    margin-bottom: 0.6rem;
+  }
+
   
   /* Add responsive design or additional styling as needed */
   
