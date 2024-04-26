@@ -32,11 +32,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 55vh;
-    width: 70vh;
-    margin: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    height: 32vw;
+    width: 43vw;
+    /* margin: auto; */
     box-sizing: border-box;
   }
   

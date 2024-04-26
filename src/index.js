@@ -4,7 +4,9 @@ import './index.css';
 // import App from './App';
 // import AppStatic from './AppStatic';
 // import App from './ImageCapture';
-import App from './MediaCapture';
+// import App from './MediaCapture';
+// import App from './PostGame';
+import App from './DemoPage';
 import reportWebVitals from './reportWebVitals';
 
 
