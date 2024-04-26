@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { db } from './firebaseConfig'; // Assuming firebaseConfig.js is in the same directory
 import { collection, addDoc } from 'firebase/firestore';
+import {Link} from 'react-router-dom'
 
 
 import './AppStatic.css';
@@ -106,7 +107,8 @@ function App() {
     <div className="main-content">
         <div className="cta-container">
         <h1 className="cta-heading">Changing the way that we Communicate</h1>
-        <a href="./demo" className="cta-link">Try now for Free</a>
+        {/* <a href="./demo" className="cta-link">Try now for Free</a> */}
+        <Link to="./demo" className="cta-link">Try now for Free</Link>
         </div>
         <div className="signup-form">
         <h2>Join the Waitlist</h2>

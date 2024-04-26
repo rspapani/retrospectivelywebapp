@@ -29,6 +29,9 @@
 body {
   padding: 0;
   margin: 0;
+}
+
+.home-page {
   color: #F5F5F5; /* Whitish color, can adjust to your preference */
   font-family: 'Albatross',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */
 }

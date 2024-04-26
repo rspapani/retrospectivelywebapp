@@ -3,7 +3,7 @@ import AudioCapture from './AudioCapture';
 import ImageCapture from './ImageCapture';
 import styles from './MediaCapture.module.css';
 
-function MediaManager() {
+function MediaManager({setFeedback}) {
     const [isActive, setIsActive] = useState(false);
     
 
@@ -27,7 +27,7 @@ function MediaManager() {
                 </button>
             </div>
 
-            <AudioCapture isrecording={isActive} />
+            <AudioCapture isrecording={isActive} setFeedback={setFeedback}/>
         </div>
     );
 }

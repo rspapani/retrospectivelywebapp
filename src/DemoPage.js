@@ -4,10 +4,7 @@ import Logs from './PostGame'; // Assuming this is the import path for the Logs 
 import './Demo.css'; // Assuming you will write your CSS in App.css
 
 function App() {
-  const [feedback, newfeedback] = useState("Recording not yet Started");
-  if (feedback === ' '){
-    newfeedback("Recording not yet Started");
-  }
+  const [feedback, setFeedback] = useState("Recording not yet Started");
 
   return (
     <div className="app">
@@ -16,7 +13,7 @@ function App() {
                 <div className="titlesec">
                     Web Demo Alpha 0.0.1
                 </div>
-                <MediaCapture />
+                <MediaCapture setFeedback={setFeedback}/>
                 <div className="how-to-use">
                     <h2>How to Use</h2>
 
