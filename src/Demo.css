@@ -131,10 +131,15 @@
     margin-bottom: 1rem;
   }
 
-  .live-feedback-section h2{
+  .live-feedback-section h2, .logs-section h2{
     margin: 0;
     margin-left: 0.6rem;
-    margin-bottom: 0.6rem;
+  }
+
+  .logs-section h2{
+    margin-top: 0.6rem;
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
   }
 
   

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const AudioCapture = ({isrecording, setFeedback}) => {
+const AudioCapture = ({isrecording, setFeedback, addlog}) => {
   const intervalRef = useRef(null);
   const audioRef = useRef(new Audio());
 
@@ -16,15 +16,16 @@ const AudioCapture = ({isrecording, setFeedback}) => {
     .then(data => {
       console.log("Audio Sent!")
         if (data.feedback) {
-          setFeedback(data.feedback);
           console.log(data);
-          if (data.feedback_path !== "") {
-            console.log("".concat("http://localhost:5000/audio_feedback/", data.feedback_path));
-            playAudio("".concat("http://localhost:5000/audio_feedback/", data.feedback_path));
+          if (data.feedback === "None") {
+            console.log("no feedback")
           }
           
           else {
-            console.log("no feedback")
+            setFeedback(data.feedback);
+            addlog({name: "New Log: " + Date.now(), conversation: data.script});
+            console.log("".concat("http://localhost:5000/audio_feedback/", data.feedback_path));
+            playAudio("".concat("http://localhost:5000/audio_feedback/", data.feedback_path));
           }
         }
 
@@ -61,12 +62,12 @@ const AudioCapture = ({isrecording, setFeedback}) => {
     recorder.start();
     setTimeout(() => {
         recorder.stop();
-    }, 5000);
+    }, 21000);
   }
 
   useEffect(() => {
     if (isrecording) {
-      intervalRef.current = setInterval(record_and_send, 5000);
+      intervalRef.current = setInterval(record_and_send, 20000);
     } else {
         clearInterval(intervalRef.current);
     }

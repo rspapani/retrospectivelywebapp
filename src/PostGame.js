@@ -52,34 +52,42 @@ const LogsList = ({ logsData }) => {
 const logsData = [
     {name: "Example log",
       conversation: [
+        ['Speaker 1', 'Hey how’re you?'],
+        ['Speaker 2', 'I\'m not doing so well actually, my wife just died of cancer'],
+        ['Speaker 1', 'Lucky you, no more nagging wife at home, you get to live free from the ball and chain'],
+        ['Retrospectively', 'This comment was rude and belittled the sadness they felt from having lost a loved one.'],
+        ['Speaker 2', 'Excuse me what did you just say?'],
+        ['Speaker 1', 'Y\'know you get to play the field, you\'re a free man now'],
+        ['Retrospectively', 'They had already expressed their offense at what you had said, do not make jokes about the loss of a loved one'],
+        ['Speaker 2', 'I\'m done talking to you you jerk'],
+        ['Speaker 1', 'Damn what\'s got you riled up?'],
+        ['Retrospectively', 'In conclusion, you need to be more sympathetic to those experiencing loss, next time apologize for the insensitive jokes here and avoid humor on these topics.'],
+      ],
+    },
+    {name: "Example log",
+      conversation: [
+        ['Speaker 1', 'Man Screw You!'],
+        ['Retrospectively', 'Don\'t say this'],
+        ['Speaker 2', 'What this makes me sad =('],
+      ],
+    },
+    {name: "Example log",
+      conversation: [
+        ['Speaker 1', 'Man Screw You!'],
+        ['Retrospectively', 'Don\'t say this'],
+        ['Speaker 2', 'What this makes me sad =('],
+      ],
+    },
+    {name: "Example log",
+      conversation: [
         ['Speaker 1', 'Hey How’re you?'],
         ['Speaker 2', 'Good How about you?'],
       ],
     },
     {name: "Example log",
       conversation: [
-        ['Speaker 1', 'Man Fuck You!'],
-        ['Speech Coach', 'Don\'t say this'],
-        ['Speaker 2', 'What this makes me sad =('],
-      ],
-    },
-    {name: "Example log",
-      conversation: [
-        ['Speaker 1', 'Man Fuck You!'],
-        ['Speech Coach', 'Don\'t say this'],
-        ['Speaker 2', 'What this makes me sad =('],
-      ],
-    },
-    {name: "Example log",
-      conversation: [
-        ['Speaker 1', 'Hey How’re you?'],
-        ['Speaker 2', 'Good How about you?'],
-      ],
-    },
-    {name: "Example log",
-      conversation: [
-        ['Speaker 1', 'Man Fuck You!'],
-        ['Speech Coach', 'Don\'t say this'],
+        ['Speaker 1', 'Man Screw You!'],
+        ['Retrospectively', 'Don\'t say this'],
         ['Speaker 2', 'What this makes me sad =('],
       ],
     },
@@ -94,8 +102,4 @@ const logsData = [
   
 console.log(logsData)
 
-const Logs = () => {
-  return <LogsList logsData={logsData}/>;
-};
-
-export default Logs;
+export default LogsList;
