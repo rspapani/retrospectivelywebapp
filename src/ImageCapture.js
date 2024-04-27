@@ -46,6 +46,7 @@ function ImageCapture({isActive}) {
 
 
         const sendImageToServer = (base64Image) => {
+            console.log(`${apiUrl}/upload_image`);
             fetch(`${apiUrl}/upload_image`, {
                 method: 'POST',
                 headers: {
