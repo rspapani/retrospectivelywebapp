@@ -1,7 +1,7 @@
 import {useState, React} from 'react';
 
-import MediaCapture from './MediaCapture'; // Assuming this is the import path for the MediaCapture component
-import LogsList from './PostGame'; // Assuming this is the import path for the Logs component
+import MediaCapture from './Components/MediaCapture/MediaCapture'; // Assuming this is the import path for the MediaCapture component
+import LogsList from './Components/Logs/Logs'; // Assuming this is the import path for the Logs component
 import './Demo.css'; // Assuming you will write your CSS in App.css
 
 function App() {
