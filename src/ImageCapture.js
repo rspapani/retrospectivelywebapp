@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './MediaCapture.module.css';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function ImageCapture({isActive}) {
     const videoRef = useRef(null);
     const intervalRef = useRef(null);
@@ -44,7 +46,7 @@ function ImageCapture({isActive}) {
 
 
         const sendImageToServer = (base64Image) => {
-            fetch('http://localhost:5000/upload_image', {
+            fetch(`${apiUrl}/upload_image`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'  // Indicates you're sending JSON data

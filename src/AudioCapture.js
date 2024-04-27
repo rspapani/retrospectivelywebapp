@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const AudioCapture = ({isrecording, setFeedback, addlog}) => {
   const intervalRef = useRef(null);
   const audioRef = useRef(new Audio());
@@ -8,7 +10,7 @@ const AudioCapture = ({isrecording, setFeedback, addlog}) => {
     const formData = new FormData();
     formData.append('file', blob, 'audio.webm');
 
-    await fetch('http://localhost:5000/upload_audio', {
+    await fetch(`${apiUrl}/upload_audio`, {
         method: 'POST',
         body: formData,
     })
@@ -24,8 +26,8 @@ const AudioCapture = ({isrecording, setFeedback, addlog}) => {
           else {
             setFeedback(data.feedback);
             addlog({name: "New Log: " + Date.now(), conversation: data.script});
-            console.log("".concat("http://localhost:5000/audio_feedback/", data.feedback_path));
-            playAudio("".concat("http://localhost:5000/audio_feedback/", data.feedback_path));
+            console.log("".concat(`${apiUrl}/audio_feedback/`, data.feedback_path));
+            playAudio("".concat(`${apiUrl}/audio_feedback/`, data.feedback_path));
           }
         }
 
@@ -62,12 +64,12 @@ const AudioCapture = ({isrecording, setFeedback, addlog}) => {
     recorder.start();
     setTimeout(() => {
         recorder.stop();
-    }, 21000);
+    }, 25000);
   }
 
   useEffect(() => {
     if (isrecording) {
-      intervalRef.current = setInterval(record_and_send, 20000);
+      intervalRef.current = setInterval(record_and_send, 24000);
     } else {
         clearInterval(intervalRef.current);
     }
