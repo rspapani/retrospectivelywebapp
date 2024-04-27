@@ -25,7 +25,7 @@ const LogEntry = ({name, conversation}) => {
         {isExpanded && (
         <div className="transcript">
             {conversation.map(([speaker, text]) => (
-            <div className={speaker.replace(/\s/g, '')} >
+            <div className={speaker.replace(/\s/g, '').toLowerCase()} >
                <p> <strong>{speaker}:</strong> {text} </p>
             </div>)
             )}

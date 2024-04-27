@@ -94,17 +94,17 @@ border: 1px solid #ccc;
     font-size: 1rem;
 }
 
-.Speaker1 {
+.speaker1 {
     color: blue;
     font-family: 'Albatross Mono',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */
 }
 
-.Speaker2 {
+.speaker2 {
     color: red;
     font-family: 'Albatross Mono',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */
 }
  
-.Retrospectively {
+.retrospectively {
     /* text-indent: 1rem; */
     margin-left: 1rem;
     color: green;
