@@ -18,7 +18,7 @@ root.render(
   <Router>
   <Routes>
       <Route exact path="/" element={<AppStatic />} />
-      <Route path="/demo" element={<App />} />
+      <Route exact path="/demo" element={<App />} />
   </Routes>
   </Router>
 );
