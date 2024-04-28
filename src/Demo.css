@@ -26,6 +26,13 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: 'Albatross Mono Heavy';
+    src: url('./fonts/Test Söhne Mono/test-soehne-mono-kraftig.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   
   @font-face {
     font-family: 'Albatross Mono Light';
@@ -161,3 +168,22 @@
   
   /* Style for Live Feedback and Logs components stays the same */
   
+
+  .prompt {
+    font-size: 1rem;
+    font-family: 'Albatross Mono',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */ 
+
+    
+    width: 100%; /* Make inputs fill the width of the form */
+    padding: 0.5rem;
+    margin-top: 0.2rem; /* Space between the label and the input */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; 
+    resize: none;
+  }
+
+  .settingstext {
+    font-size: 1.1rem;
+    font-family: 'Albatross',"Open Sans", sans-serif; /* Fallback to sans-serif if custom font fails */ 
+  }

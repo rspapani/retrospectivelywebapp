@@ -1,0 +1,45 @@
+.Disclaimer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.Disclaimer-content {
+    background: #fefefe;
+    padding: 2rem;
+    border-radius: 4px;
+    
+    max-width: 70%;
+    max-height: 70%;
+    overflow-y:auto;
+
+
+}
+
+.Disclaimer-content p{
+    text-indent: 1rem;
+    margin-bottom: 1rem;
+}
+.buttonStyle {
+    
+    /* position: absolute; */
+    margin-left: 60%;
+
+    flex: 1;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 40%;
+    font-size: 1.1rem;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid rgb(20, 20, 20);
+    color: rgb(20, 20, 20);
+    /* font-family: 'Albatross',"Open Sans", sans-serif; Fallback to sans-serif if custom font fails */
+}

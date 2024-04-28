@@ -337,12 +337,6 @@ input[type="email"] {
 } */
 
 
-.text-content {
-  margin-top: 6rem;
-  padding-left: 3rem;
-  flex-basis: 50%; /* Adjust width as necessary */
-  /* Add padding or margins as needed for spacing */
-}
 
 
 .image-content {
@@ -351,6 +345,8 @@ input[type="email"] {
   height: 78vh;
   /*flex-basis: 50%;  Adjust width as necessary */
   /* Style your image container if needed */
+
+  margin-right: 2rem;
 }
 
 .image-content img {
@@ -361,6 +357,20 @@ input[type="email"] {
 }
 
 
+.text-content {
+  margin: auto;
+  margin-top: 5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  flex-basis: 50%; /* Adjust width as necessary */
+  /* Add padding or margins as needed for spacing */
+
+  background-color: #1E1E1E;
+  
+  padding: 1.5rem;
+  border: #ccc solid 1px;
+  border-radius: 4px;
+}
 
 
 /* Style for the paragraph in the content section */
@@ -371,6 +381,7 @@ input[type="email"] {
   padding: 0rem;
   font-size: 1rem; /* Large font size for heading */
   /* Additional paragraph styles as needed */
+  
 }
 
 .scrollbody a, .scrollheading a, .fuckyoureact{

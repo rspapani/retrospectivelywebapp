@@ -2,13 +2,15 @@ import React, { useEffect, useRef } from 'react';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const AudioCapture = ({isrecording, setFeedback, addlog}) => {
+const AudioCapture = ({isrecording, setFeedback, addlog, custom}) => {
   const intervalRef = useRef(null);
   const audioRef = useRef(new Audio());
 
   async function sendToServer(blob) {
+    console.log(custom)
     const formData = new FormData();
     formData.append('file', blob, 'audio.webm');
+    formData.append('prompt', custom);
 
     await fetch(`${apiUrl}/upload_audio`, {
         method: 'POST',
@@ -49,6 +51,7 @@ const AudioCapture = ({isrecording, setFeedback, addlog}) => {
   }
 
   async function record_and_send() {
+    console.log(`Starting Recording at: ${Date.now()}`)
     if (!isrecording) return;
 
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -69,9 +72,10 @@ const AudioCapture = ({isrecording, setFeedback, addlog}) => {
 
   useEffect(() => {
     if (isrecording) {
+      record_and_send();      
       intervalRef.current = setInterval(record_and_send, 24000);
     } else {
-        clearInterval(intervalRef.current);
+      clearInterval(intervalRef.current);
     }
 
     return () => clearInterval(intervalRef.current);

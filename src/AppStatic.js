@@ -153,13 +153,14 @@ function App() {
       <div className="text-content">
         <p className='scrollheading'>Using AI to bring about <span className="fuckyoureact">Conversational</span> Excellence</p>
         <p className='scrollbody'>
-          Retrospectively uses computer vision, tonal audio analysis, and LLM agents to become your own personal speech coach.  By observing your conversations, Retrospectively gives you live feedback non-intrusively so you can keep your natural flow while avoiding the social faux passes that often keep you up at night (<span className="fuckyoureact">we've all had them</span>).  By analyzing the emotional responses of the people you're talking to, and the things that have been said, we guarantee we can make you a better speaker with our end of day summaries.
+          Retrospectively uses computer vision, tonal audio analysis, and LLM agents to become your own personal <span className="fuckyoureact">Conversation Coach</span>.  By observing your conversations, Retrospectively gives you live feedback non-intrusively so you can keep your natural flow while avoiding the social faux passes that often keep you up at night (<span className="fuckyoureact">we've all had them</span>).  By analyzing the emotional responses of the people you're talking to, and the things that have been said, we guarantee we can make you a better speaker with our end of day summaries.
         </p>
 
         <p className='scrollbody'>
           We plan on releasing a version for AR devices so you can take your speech coach on the go, as well as a desktop client for those excessively long Zoom calls.  But for the time being we have a <a href='./demo/'> web version</a> that you can try now.  Whether you struggle to pick up on social cues, want to make yourself a better communicator in the virtual world, or just want to improve your speech <span className="fuckyoureact">Retrospectively is for you</span>.
         </p>
       </div>
+
       <div className="image-content">
         {/* Place your image here */}
         <img style={{opacity: opacity}}
